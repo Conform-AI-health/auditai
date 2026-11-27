@@ -1,0 +1,34 @@
+# AuditIA — Intellectual Property Notice
+
+**Project owner:** Mirella Batista Cruz, MD  
+**Copyright:** © 2026 Mirella Batista Cruz. All rights reserved.
+
+AuditIA is an independent Clinical AI evaluation portfolio project.
+
+## Public disclosure boundary
+
+The public repository intentionally provides only a limited portfolio view. Publication of a concept, framework heading, safety category, or selected synthetic example does not indicate that the complete underlying methodology has been released.
+
+The following are intentionally reserved and may be maintained privately:
+
+- Complete prompt and instruction architecture
+- Detailed workflow and decision logic
+- Complete synthetic benchmark and adversarial test library
+- Scoring rubrics and acceptance thresholds
+- Unpublished evaluation results and failure analyses
+- Implementation code and automation
+- Private documentation and future commercial development
+
+## Permission
+
+No permission is granted for reproduction, adaptation, distribution, commercialization, derivative works, incorporation into another product/service, or use of these materials to develop or benchmark another system without prior written authorization.
+
+For permission requests, contact the project owner through the LinkedIn profile identified in the repository README.
+
+## Attribution is not permission
+
+Crediting the author does not by itself authorize reuse of protected material.
+
+## Third-party rights
+
+AuditIA does not claim ownership over third-party technologies, laws, regulations, standards, model providers, or other third-party intellectual property referenced for contextual purposes.

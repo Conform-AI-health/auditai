@@ -1,0 +1,126 @@
+{
+  "operadora": "Aurora Saúde",
+  "origem": "SIGO simulado",
+  "casos": [
+    {
+      "id": "B01",
+      "paciente": "R. M. S.",
+      "idade": 54,
+      "sexo": "Masculino",
+      "documentos": [
+        {
+          "arquivo": "entrada/B01/pedido_medico.pdf",
+          "variantes": [
+            "entrada/B01/pedido_medico.png",
+            "entrada/B01/pedido_medico_digitalizado.pdf"
+          ],
+          "arquivo_demo": "entrada/B01/pedido_medico.png"
+        },
+        {
+          "arquivo": "entrada/B01/laudo_tc.pdf",
+          "variantes": [
+            "entrada/B01/laudo_tc.png",
+            "entrada/B01/laudo_tc_digitalizado.pdf"
+          ],
+          "arquivo_demo": "entrada/B01/laudo_tc_digitalizado.pdf"
+        }
+      ],
+      "external_id": "SIGO-B01-AURORA",
+      "beneficiario": "BENEF-AURORA-B01",
+      "procedimento": "PET-CT oncológico",
+      "tuss": "40708128"
+    },
+    {
+      "id": "B02",
+      "paciente": "M. A. P.",
+      "idade": 62,
+      "sexo": "Feminino",
+      "documentos": [
+        {
+          "arquivo": "entrada/B02/pedido_medico.pdf",
+          "variantes": [
+            "entrada/B02/pedido_medico.png",
+            "entrada/B02/pedido_medico_digitalizado.pdf"
+          ],
+          "arquivo_demo": "entrada/B02/pedido_medico.png"
+        },
+        {
+          "arquivo": "entrada/B02/laudo_tc.pdf",
+          "variantes": [
+            "entrada/B02/laudo_tc.png",
+            "entrada/B02/laudo_tc_digitalizado.pdf"
+          ],
+          "arquivo_demo": "entrada/B02/laudo_tc_digitalizado.pdf"
+        }
+      ],
+      "external_id": "SIGO-B02-AURORA",
+      "beneficiario": "BENEF-AURORA-B02",
+      "procedimento": "PET-CT oncológico",
+      "tuss": "41001222"
+    },
+    {
+      "id": "B07",
+      "paciente": "T. L. F.",
+      "idade": 68,
+      "sexo": "Masculino",
+      "documentos": [
+        {
+          "arquivo": "entrada/B07/pedido_medico.pdf",
+          "variantes": [
+            "entrada/B07/pedido_medico.png",
+            "entrada/B07/pedido_medico_digitalizado.pdf"
+          ],
+          "arquivo_demo": "entrada/B07/pedido_medico.png"
+        },
+        {
+          "arquivo": "entrada/B07/laudo_rm.pdf",
+          "variantes": [
+            "entrada/B07/laudo_rm.png",
+            "entrada/B07/laudo_rm_digitalizado.pdf"
+          ],
+          "arquivo_demo": "entrada/B07/laudo_rm_digitalizado.pdf"
+        }
+      ],
+      "external_id": "SIGO-B07-AURORA",
+      "beneficiario": "BENEF-AURORA-B07",
+      "procedimento": "PET-CT cerebral com 18F-FDG",
+      "tuss": "40708136"
+    },
+    {
+      "id": "B08",
+      "paciente": "J. P. A.",
+      "idade": 59,
+      "sexo": "Masculino",
+      "documentos": [
+        {
+          "arquivo": "entrada/B08/pedido_medico.pdf",
+          "variantes": [
+            "entrada/B08/pedido_medico.png",
+            "entrada/B08/pedido_medico_digitalizado.pdf"
+          ],
+          "arquivo_demo": "entrada/B08/pedido_medico.png"
+        },
+        {
+          "arquivo": "entrada/B08/laudo_tc.pdf",
+          "variantes": [
+            "entrada/B08/laudo_tc.png",
+            "entrada/B08/laudo_tc_digitalizado.pdf"
+          ],
+          "arquivo_demo": "entrada/B08/laudo_tc_digitalizado.pdf"
+        },
+        {
+          "arquivo": "entrada/B08/laudo_cea.pdf",
+          "variantes": [
+            "entrada/B08/laudo_cea.png",
+            "entrada/B08/laudo_cea_digitalizado.pdf"
+          ],
+          "arquivo_demo": "entrada/B08/laudo_cea_digitalizado.pdf"
+        }
+      ],
+      "external_id": "SIGO-B08-AURORA",
+      "beneficiario": "BENEF-AURORA-B08",
+      "procedimento": "PET-CT oncológico",
+      "tuss": "40708128"
+    }
+  ]
+}
