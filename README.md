@@ -105,3 +105,4 @@ Viewing the repository does not constitute a transfer or license of intellectual
 ## Disclaimer
 
 AuditIA is an independent educational and exploratory Clinical AI evaluation project. Public examples are synthetic and have no normative value. Nothing in this repository constitutes medical advice, a coverage authorization or denial, regulatory guidance, or a validated autonomous clinical decision-support system.
+# auditai
