@@ -1,0 +1,2 @@
+tzdata
+holidays>=0.107,<1
