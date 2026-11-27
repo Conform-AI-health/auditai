@@ -749,6 +749,8 @@ def app(env, start):
                 return reply("Documento original não disponível para visualização.", "404 Not Found")
             return reply(telas.documento_page(doc,did,session))
         if method == "POST" and path in ("/parecer","/analisar"):
+            if not config.AI_ENABLED:
+                return reply("Modo de validação: análises desabilitadas.", "503 Service Unavailable")
             cid = data.get("case_id","")
             case = storage.case_for(conn,tenant,cid)
             if not auditor or not case:

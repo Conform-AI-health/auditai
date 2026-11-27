@@ -54,6 +54,30 @@ O serviço permanece vinculado a `127.0.0.1`; não abra a porta da aplicação p
 
 O launcher usa `.venv` se existir e, caso contrário, procura `python3` no `PATH`. O aplicativo usa `mvp/auditia-beta.sqlite3`; não substitua bancos existentes nem use dados reais. Para OCR de imagens/PDFs digitalizados, instale Tesseract e o idioma português separadamente.
 
+### Validação básica sem chamadas à IA
+
+Para validar login e dados já existentes na base de demonstração, sem executar análises nem instalar as dependências opcionais de PDF/OCR:
+
+1. Na raiz do projeto, instale os requisitos mínimos:
+
+   ```bash
+   .venv/bin/python -m pip install -r mvp/requirements-validacao.txt
+   ```
+
+2. Inicie o modo de validação:
+
+   ```bash
+   bash mvp/iniciar_validacao.sh
+   ```
+
+   Esse modo usa `mvp/auditia-governanca-demo.sqlite3`, mantém o servidor em `127.0.0.1:5000` e bloqueia os envios para análise. Não precisa de `GEMINI_API_KEY`; pareceres existentes podem ser consultados. Preserve o `.env` existente e permita que o usuário do serviço o leia e grave nele o segredo JWT. Em EC2, use o túnel SSH descrito acima; não exponha a porta `5000`. A inicialização pode atualizar o esquema, e o login, o aceite do termo e os eventos de auditoria podem gravar no banco. Use as credenciais já cadastradas; não compartilhe senhas ou o arquivo `.env`.
+
+   Para validar o modo sem as dependências opcionais de PDF/OCR:
+
+   ```bash
+   .venv/bin/python -B -m unittest discover -s mvp/tests -p test_validacao_basica.py -v
+   ```
+
 ## Estados do caso
 
 - **Ativo:** aparece na tela Casos e pode receber análise e revisão.

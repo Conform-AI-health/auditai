@@ -12,7 +12,6 @@ from urllib.parse import urlsplit, urljoin, unquote
 
 from backend.config import ROOT
 
-import pymupdf
 from backend import criterios_dut
 from backend import regulatoria
 
@@ -76,6 +75,7 @@ class TextoHTML(HTMLParser):
 
 def extrair(tipo,raw):
     if raw.startswith(b"%PDF-"):
+        import pymupdf
         with pymupdf.open(stream=raw,filetype="pdf") as pdf:
             if pdf.needs_pass or len(pdf)>600: raise ValueError("PDF indisponível para extração.")
             texto="\n".join(p.get_text() for p in pdf)

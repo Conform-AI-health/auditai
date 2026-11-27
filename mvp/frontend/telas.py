@@ -403,7 +403,12 @@ def case_page(conn, case, session):
                       card("Atualizar dados de ensaio", form("/caso/alterar", session["csrf"], fields, "Salvar alteração"))))
     check = storage.latest_approved(conn, tenant, "checklist")
     ref = storage.latest_approved(conn, tenant, "reference")
-    if check and ref:
+    if not config.AI_ENABLED:
+        cards.append(("Modo de validação", card(
+            "Modo de validação",
+            "<p>Análises automatizadas estão desabilitadas nesta instância. Os dados e pareceres existentes permanecem disponíveis para consulta.</p>",
+        )))
+    elif check and ref:
         lbl_ia = "⚡ Reanalisar com IA (Gemini)" if runs else "⚡ Analisar com IA (Gemini)"
         if assumido and assumido != actor:
             corpo_analise_ia = (
@@ -691,7 +696,9 @@ def cases_page(conn, session, query):
         action_label = determinar_acao_primaria(c, current_user=current_user)
         assumido = c.get("assumido_por")
 
-        if action_label in ("Analisar com IA", "Reanalisar com IA"):
+        if action_label in ("Analisar com IA", "Reanalisar com IA") and not config.AI_ENABLED:
+            btn_primary = f'<a class="btn btn-secondary case-action case-open" href="/caso/{case_id}">Visualizar</a>'
+        elif action_label in ("Analisar com IA", "Reanalisar com IA"):
             btn_primary = (
                 f'<form method="post" action="/parecer" class="inline case-action-form" '
                 f'onsubmit="const b=this.querySelector(\'button\'); if(b){{b.disabled=true; b.innerText=\'Processando...\';}}">'
@@ -708,9 +715,11 @@ def cases_page(conn, session, query):
         else:
             btn_primary = f'<a class="btn btn-primary case-action case-open btn-action-primary" href="/caso/{case_id}">{action_label}</a>'
 
-        opinion_form = form("/parecer", session["csrf"],
-                            f'<input type="hidden" name="case_id" value="{case_id}">',
-                            "Gerar parecer", "inline case-action case-opinion")
+        opinion_form = ""
+        if config.AI_ENABLED:
+            opinion_form = form("/parecer", session["csrf"],
+                                f'<input type="hidden" name="case_id" value="{case_id}">',
+                                "Gerar parecer", "inline case-action case-opinion")
         management_fields = f'<input type="hidden" name="case_id" value="{case_id}">'
         finish_form = form("/caso/finalizar", session["csrf"], management_fields,
                            "Finalizar caso", "inline case-action case-finish")

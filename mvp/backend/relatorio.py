@@ -8,16 +8,11 @@ import re
 
 from backend.datas import data_br
 
-import pymupdf
-from reportlab.lib.pagesizes import A4
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.lib.styles import getSampleStyleSheet
-from reportlab.lib.units import mm
-from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer
-
-
 def _styles():
+    from reportlab.pdfbase import pdfmetrics
+    from reportlab.pdfbase.ttfonts import TTFont
+    from reportlab.lib.styles import getSampleStyleSheet
+
     fonts = Path("C:/Windows/Fonts")
     pdfmetrics.registerFont(TTFont("AuditIA", fonts / "arial.ttf"))
     pdfmetrics.registerFont(TTFont("AuditIA-Bold", fonts / "arialbd.ttf"))
@@ -32,6 +27,10 @@ def _styles():
 
 
 def _resumo(case, run, output, review, documents):
+    from reportlab.lib.pagesizes import A4
+    from reportlab.lib.units import mm
+    from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer
+
     buffer = BytesIO()
     styles = _styles()
     snapshot = json.loads(run["input_snapshot"])
@@ -80,6 +79,8 @@ def _resumo(case, run, output, review, documents):
 
 
 def pacote(case, run, output, review, documents, assets_root):
+    import pymupdf
+
     final = pymupdf.open()
     with pymupdf.open(stream=_resumo(case, run, output, review, documents), filetype="pdf") as summary:
         final.insert_pdf(summary)

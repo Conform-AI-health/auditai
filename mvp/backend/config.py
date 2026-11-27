@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 BETA = os.environ.get("AUDITIA_BETA") == "1"
+AI_ENABLED = os.environ.get("AUDITIA_IA_ENABLED", "1") == "1"
 ROOT = Path(__file__).resolve().parents[1]
 PROJECT_ROOT = ROOT.parent
 ENV_FILE = PROJECT_ROOT / ".env"
